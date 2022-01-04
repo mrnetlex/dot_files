@@ -20,9 +20,15 @@ sudo paru -Syuu
 #install packages
 sudo pamac install libreoffice-fresh brave-beta-bin bat  ardour caprine discord celluloid ufw gimp kitty micro lutris mpv obs-studio steam ani-cli-git badlion-client btop btrfs-assistant cmatrix cpupower-git exa fd fish gamemode lf lolcat mangohud neofetch plocate snapper speedtest-cli spotify starship tealdeer teams tree ttf-ms-fonts wine winetricks 
 
+#remove orphanes
+sudo pamac remove -o
+
 #enable firewall
 sudo ufw enable
 
 #install oh-my-fish and install bang-bang
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 omf install bang-bang
+
+clear
+pfetch
