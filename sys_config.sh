@@ -18,7 +18,7 @@ sudo paru -R yay
 sudo paru -Syuu
 
 #install packages
-sudo pamac install libreoffice-fresh ardour caprine discord celluloid ufw gimp kitty micro lutris mpv obs-studio steam ani-cli-git badlion-client btop btrfs-assistant cmatrix cpupower-git exa fd fish gamemode lf lolcat mangohud neofetch plocate snapper speedtest-cli spotify starship tealdeer teams tree ttf-ms-fonts wine winetricks 
+sudo pamac install bat libreoffice-fresh ardour caprine discord celluloid ufw gimp kitty micro lutris mpv obs-studio steam ani-cli-git badlion-client btop btrfs-assistant cmatrix cpupower-git exa fd fish gamemode lf lolcat mangohud neofetch plocate snapper speedtest-cli spotify starship tealdeer teams tree ttf-ms-fonts wine winetricks 
 
 #enable firewall
 sudo ufw enable
