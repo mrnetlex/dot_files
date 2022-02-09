@@ -13,7 +13,8 @@ sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist
 
 #update sysytem
 sudo pacman -Syuu
-sudo yay -S pamac-aur paru
+sudo yay -S pamac-aur 
+sudo yay -S paru
 sudo paru -R yay
 sudo paru -Syuu
 
