@@ -91,9 +91,15 @@ if status is-interactive
             cp $filename $filename.bak
         end
 
-        #micro dracula colorscheme
-        export MICRO_TRUECOLOR=1
+           #zoxide 
+        zoxide init fish | source
 
+        #navi
+        navi widget fish | source
+        
+        #micro custom  colorscheme
+        export MICRO_TRUECOLOR=1
+    
     #run pfetch
 pfetch
 
