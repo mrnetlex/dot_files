@@ -1,5 +1,6 @@
 #!/bin/sh
 
+#place in /usr/lib/systemd/system-sleep
 case $1/$2 in
   pre/*)
     echo "Going to $2..."
