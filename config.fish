@@ -139,8 +139,8 @@ if status is-interactive
             set -g fish_pager_color_description $comment
 
     # Wayland fix 
-    set QT_QPA_PLATFORM=wayland
-    set QT_QPA_PLATFORMTHEME="qt5ct"
+    set QT_QPA_PLATFORM wayland
+    set QT_QPA_PLATFORMTHEME qt5ct
 
     #   run fetch
 nitch
