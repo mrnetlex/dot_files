@@ -3,10 +3,6 @@ if status is-interactive
 
     #Remove welcome message
     set fish_greeting
-
-    # Set settings for https://github.com/franciscolourenco/done
-    set -U __done_min_cmd_duration 10000
-    set -U __done_notification_urgency_level low
     
     ## Useful aliases
 
@@ -51,7 +47,10 @@ if status is-interactive
     alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
     alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
     alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
-    
+
+    # Funny aliases
+    alias tree="erdtree"
+    alias ping="pingu"
     
     ## Functions
         # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
@@ -91,18 +90,59 @@ if status is-interactive
             cp $filename $filename.bak
         end
 
-           #zoxide 
+            # CLI utilities        
+        #zoxide 
         zoxide init fish | source
 
         #navi
         navi widget fish | source
-        
-        #micro custom  colorscheme
-        export MICRO_TRUECOLOR=1
-    
-    #run pfetch
-pfetch
 
-    #some starship stuff - command prompt
-starship init fish | source
-end
+        #fzf
+        set fzf_preview_dir_cmd exa --all --color=always
+
+        #some starship stuff - command prompt
+        starship init fish | source
+        
+    ##  Themes
+         #TokyoNight Color Palette
+            set -l foreground c0caf5
+            set -l selection 33467C
+            set -l comment 565f89
+            set -l red f7768e
+            set -l orange ff9e64
+            set -l yellow e0af68
+            set -l green 9ece6a
+            set -l purple 9d7cd8
+            set -l cyan 7dcfff
+            set -l pink bb9af7
+            
+        #Syntax Highlighting Colors
+            set -g fish_color_normal $foreground
+            set -g fish_color_command $cyan
+            set -g fish_color_keyword $pink
+            set -g fish_color_quote $yellow
+            set -g fish_color_redirection $foreground
+            set -g fish_color_end $orange
+            set -g fish_color_error $red
+            set -g fish_color_param $purple
+            set -g fish_color_comment $comment
+            set -g fish_color_selection --background=$selection
+            set -g fish_color_search_match --background=$selection
+            set -g fish_color_operator $green
+            set -g fish_color_escape $pink
+            set -g fish_color_autosuggestion $comment
+            
+        #Completion Pager Colors
+            set -g fish_pager_color_progress $comment
+            set -g fish_pager_color_prefix $cyan
+            set -g fish_pager_color_completion $foreground
+            set -g fish_pager_color_description $comment
+
+    # Wayland fix 
+    set QT_QPA_PLATFORM=wayland
+    set QT_QPA_PLATFORMTHEME="qt5ct"
+
+    #   run fetch
+nitch
+
+    end
