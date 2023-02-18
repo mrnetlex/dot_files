@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Set the email recipient
-recipient="mrnetlex@gmail.com"
+recipient="yourmail@domain.com"
 
 # List of drives to check (replace with your own)
-drives=("sda" "sdc" "sdd")
+drives=("sda" "sdb" "sdc")
 
 # Get the current date and time for logging
 log_date=$(date "+%Y-%m-%d %H:%M:%S")
