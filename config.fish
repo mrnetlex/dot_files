@@ -15,7 +15,7 @@ if status is-interactive
     alias ip="ip -color"
     
     # Replace some more things with better alternatives
-    alias cat='bat --style header --style rules --style snip --style changes --style header'
+    alias cat='bat --style header  --style snip --style changes --style header'
     [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
  
     # Common use
@@ -41,6 +41,9 @@ if status is-interactive
     alias hw='hwinfo --short'                                   # Hardware Info
     alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
     alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
+    alias s='kitty +kitten ssh'
+    alias tp='trash'
+    alias trash-put='tp'
 
     # Get fastest mirrors
     alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
@@ -49,7 +52,6 @@ if status is-interactive
     alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
     # Funny aliases
-    alias tree="erdtree"
     alias ping="pingu"
     
     ## Functions
@@ -102,6 +104,10 @@ if status is-interactive
 
         #some starship stuff - command prompt
         starship init fish | source
+
+        #nnn
+        
+        
         
     ##  Themes
          #TokyoNight Color Palette
@@ -137,12 +143,8 @@ if status is-interactive
             set -g fish_pager_color_prefix $cyan
             set -g fish_pager_color_completion $foreground
             set -g fish_pager_color_description $comment
-
-    # Wayland fix 
-    set QT_QPA_PLATFORM wayland
-    set QT_QPA_PLATFORMTHEME qt5ct
-
-    #   run fetch
+            
+        #run fetch
 nitch
 
     end
