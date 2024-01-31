@@ -6,12 +6,12 @@ if status is-interactive
     
     ## Useful aliases
 
-    # Replace ls with exa
-    alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
-    alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-    alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-    alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-    alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+    # Replace ls with eza
+    alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+    alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+    alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+    alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+    alias l.="eza -a | egrep '^\.'"                                     # show only dotfiles
     alias ip="ip -color"
     
     # Replace some more things with better alternatives
@@ -24,10 +24,8 @@ if status is-interactive
     alias tarnow='tar -acf '
     alias untar='tar -xvf '
     alias wget='wget -c '
-    alias rmpkg="sudo pacman -Rdd"
     alias psmem='ps auxf | sort -nr -k 4'
     alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-    alias upd='/usr/bin/update'
     alias ..='cd ..'
     alias ...='cd ../..'
     alias ....='cd ../../..'
@@ -38,9 +36,8 @@ if status is-interactive
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias grep='rg'
     alias hw='hwinfo --short'                                   # Hardware Info
-    alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
-    alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
     alias s='kitty +kitten ssh'
     alias tp='trash'
     alias trash-put='tp'
@@ -53,6 +50,7 @@ if status is-interactive
 
     # Funny aliases
     alias ping="pingu"
+    alias tree="erd"
     
     ## Functions
         # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
@@ -92,7 +90,7 @@ if status is-interactive
             cp $filename $filename.bak
         end
 
-            # CLI utilities        
+    # CLI utilities        
         #zoxide 
         zoxide init fish | source
 
@@ -100,7 +98,7 @@ if status is-interactive
         navi widget fish | source
 
         #fzf
-        set fzf_preview_dir_cmd exa --all --color=always
+        set fzf_preview_dir_cmd eza --all --color=always
 
         #some starship stuff - command prompt
         starship init fish | source
@@ -143,6 +141,16 @@ if status is-interactive
             set -g fish_pager_color_prefix $cyan
             set -g fish_pager_color_completion $foreground
             set -g fish_pager_color_description $comment
+
+        #Flatpak fix
+            set -l xdg_data_home $XDG_DATA_HOME ~/.local/share
+            set -gx --path XDG_DATA_DIRS $xdg_data_home[1]/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+            
+            for flatpakdir in ~/.local/share/flatpak/exports/bin /var/lib/flatpak/exports/bin
+                if test -d $flatpakdir
+                    contains $flatpakdir $PATH; or set -a PATH $flatpakdir
+                end
+            end
             
         #run fetch
 nitch
